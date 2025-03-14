@@ -1,63 +1,62 @@
-use retail_transaction;
+USE retail_transaction;
 
--- Just taking a quick peek at the data to see what's inside
+-- Taking a quick look at the first 10 records to get a sense of the data
 SELECT TOP 10 * FROM transactions;
 
--- How many total transactions have we got in this dataset?
+-- Checking the total number of transactions recorded in the dataset
 SELECT COUNT(*) AS total_transactions FROM transactions;
 
--- Let’s see how much money customers have spent in total
+-- Calculating the total revenue generated from all transactions
 SELECT SUM(total_cost) AS total_revenue FROM transactions;
 
--- How many different people have bought stuff? 
+-- Finding out how many unique customers have made purchases
 SELECT COUNT(DISTINCT customer_name) AS unique_customers FROM transactions;
 
--- Who's dropping the most cash? Let’s see our VIPs!
-SELECT top 10 customer_name, SUM(total_cost) AS total_spent
+-- Identifying the top 10 highest-spending customers
+SELECT TOP 10 customer_name, SUM(total_cost) AS total_spent
 FROM transactions
 GROUP BY customer_name
 ORDER BY total_spent DESC;
 
--- On average, how much does each transaction cost?
+-- Calculating the average value of a single transaction
 SELECT AVG(total_cost) AS avg_order_value FROM transactions;
 
-
--- Curious: How are most people paying?
+-- Understanding customer payment preferences by counting usage of each payment method
 SELECT payment_method, COUNT(*) AS usage_count
 FROM transactions
 GROUP BY payment_method
 ORDER BY usage_count DESC;
 
--- Which cities are bringing in the most sales?
+-- Checking which cities contribute the most to total sales
 SELECT city, SUM(total_cost) AS total_sales
 FROM transactions
 GROUP BY city
 ORDER BY total_sales DESC;
 
--- These folks only bought once... huge churn risk!
+-- Identifying customers who have only made a single purchase, which could indicate a churn risk
 SELECT customer_name, COUNT(*) AS order_count
 FROM transactions
 GROUP BY customer_name
 HAVING COUNT(*) = 1;
 
--- When was the last time each customer shopped with us?
+-- Determining the last purchase date for each customer
 SELECT customer_name, MAX(date) AS last_purchase_date
 FROM transactions
 GROUP BY customer_name;
 
--- What are people buying the most? Let’s check the top 10 items.
-SELECT top 10 product, COUNT(*) AS times_purchased
+-- Finding the top 10 most frequently purchased products
+SELECT TOP 10 product, COUNT(*) AS times_purchased
 FROM transactions
 GROUP BY product
-ORDER BY times_purchased DESC
+ORDER BY times_purchased DESC;
 
--- Which product is making us the most money?
-SELECT top 1 product, SUM(total_cost) AS total_revenue
+-- Identifying the product that has generated the highest total revenue
+SELECT TOP 1 product, SUM(total_cost) AS total_revenue
 FROM transactions
 GROUP BY product
-ORDER BY total_revenue DESC
+ORDER BY total_revenue DESC;
 
--- How often do our customers buy again? Checking time gaps between their orders.
+-- Measuring how often customers place repeat orders by calculating the average time between their purchases
 WITH purchase_gaps AS (
     SELECT 
         customer_name, 
@@ -67,13 +66,13 @@ WITH purchase_gaps AS (
 )
 SELECT 
     customer_name, 
-    AVG(DATEDIFF(day, prev_purchase, date)) AS avg_days_between_orders
+    AVG(DATEDIFF(DAY, prev_purchase, date)) AS avg_days_between_orders
 FROM purchase_gaps
 WHERE prev_purchase IS NOT NULL
 GROUP BY customer_name
 ORDER BY avg_days_between_orders DESC;
 
--- We love customers who spend more over time! Who are they?
+-- Identifying customers whose spending has increased over time
 WITH spending_growth AS (
     SELECT 
         customer_name, 
@@ -91,9 +90,7 @@ GROUP BY customer_name
 HAVING MAX(yearly_spent) > MIN(yearly_spent)
 ORDER BY max_spent DESC;
 
-
-
--- Who’s our biggest spender in each city?
+-- Finding the highest-spending customer in each city
 WITH city_top_spenders AS (
     SELECT 
         city, 
@@ -107,9 +104,8 @@ SELECT city, customer_name, total_spent
 FROM city_top_spenders
 WHERE rank = 1;
 
-
--- Let’s estimate how much a customer is worth over their lifetime.
-SELECT top 10 
+-- Estimating the customer lifetime value (CLV) for the top 10 customers
+SELECT TOP 10 
     customer_name, 
     COUNT(*) AS total_orders, 
     AVG(total_cost) AS avg_order_value,
@@ -118,13 +114,13 @@ FROM transactions
 GROUP BY customer_name
 ORDER BY estimated_clv DESC;
 
--- Which store type makes us the most money? Let’s rank them.
+-- Ranking store types based on total revenue generated
 SELECT store_type, SUM(total_cost) AS total_revenue
 FROM transactions
 GROUP BY store_type
 ORDER BY total_revenue DESC;
 
--- Do returning customers respond to discounts more?
+-- Checking if returning customers are more likely to use promotions
 SELECT promotion, COUNT(*) AS times_used
 FROM transactions
 WHERE customer_name IN (
@@ -133,23 +129,19 @@ WHERE customer_name IN (
 GROUP BY promotion
 ORDER BY times_used DESC;
 
--- Checking revenue trends over the last 2 years to identify sales patterns
+-- Analyzing revenue trends over the last two years to spot any seasonal sales patterns
 SELECT year, month, SUM(total_cost) AS monthly_revenue
 FROM transactions
 GROUP BY year, month
 ORDER BY year DESC, month DESC;
 
-
-
-
--- How often do customers use discounts?
+-- Measuring how frequently discounts are used in transactions
 SELECT COUNT(*) AS discounted_orders, 
        COUNT(*) * 100.0 / (SELECT COUNT(*) FROM transactions) AS discount_usage_percentage
 FROM transactions
 WHERE discount_applied = 1;
 
-
--- Are some customers ONLY buying when there’s a discount?
+-- Identifying customers who primarily buy only when thereâ€™s a discount
 SELECT customer_name, 
        COUNT(*) AS total_orders, 
        SUM(CASE WHEN discount_applied = 1 THEN 1 ELSE 0 END) AS discounted_orders,
@@ -159,12 +151,7 @@ GROUP BY customer_name
 HAVING (SUM(CASE WHEN discount_applied = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*)) > 80 -- More than 80% of purchases were discounted
 ORDER BY discount_dependency DESC;
 
-
-
-
-
-
--- Which product was the top seller for each month?
+-- Identifying the best-selling product for each month
 WITH ranked_sales AS (
     SELECT product, year, month, COUNT(*) AS total_sold,
            RANK() OVER (PARTITION BY year, month ORDER BY COUNT(*) DESC) AS rank
