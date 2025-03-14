@@ -1,0 +1,41 @@
+--------------------------------------------------------------------------------------------------------------------------------
+
+ Cluster 0: Infrequent, Low Spenders
+- These customers don’t buy often and don’t spend much when they do.
+- They make around 2 purchases and spend an average of $74 in total.
+- They also have the largest number of customers (152,389 people).
+- Possible strategy: Offer discounts, email campaigns, or loyalty points to increase engagement.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ Cluster 1: VIP Customers (High Spend, High Frequency)
+- This is the smallest group (only 663 customers) but they spend the most.
+- Their total spend is around $5,000, and they make 96+ purchases.
+- These are our **most valuable customers** and should be treated as priority.
+- Possible strategy: Exclusive deals, early access to new products, and personalized offers.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ Cluster 2: Regular, Mid-Spending Customers
+- These shoppers are active but not as high-spending as the VIPs.
+- They spend around $1,068 in total across 20 transactions.
+- They could be nurtured into becoming VIP customers with the right engagement.
+- Possible strategy: Upselling, cross-selling, and membership programs.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ Cluster 3: Occasional Shoppers with Higher Order Value
+- These customers don’t buy often (2-3 transactions), but when they do, they spend more per order.
+- Their total spend is about $149, but their **average order size is $70+**.
+- Since they have a higher spend per purchase, they might respond well to seasonal deals or special promotions.
+- Possible strategy: Retargeting campaigns, personalized product recommendations.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+ Key Takeaways:
+- Cluster 1 (VIPs) are the **biggest revenue drivers**—retain them with premium benefits.
+- Cluster 2 (Regular Buyers) can be **nudged into VIP status** with smart engagement.
+- Cluster 3 (Occasional but High Spenders) can be **re-engaged with strategic offers**.
+- Cluster 0 (Low Spenders) is the **largest group but least engaged**—potential for growth.
+
+--------------------------------------------------------------------------------------------------------------------------------
