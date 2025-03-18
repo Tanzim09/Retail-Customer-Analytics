@@ -108,28 +108,32 @@ Key aspects covered:
 
 ## Folder Structure
 
+```
 Retail-Customer-Analytics/
 │── dashboard/
-│ ├── Retail_Customer_Analytics.pbix # Power BI dashboard file
+│   ├── Retail_Customer_Analytics.pbix  # Power BI dashboard file
 │
 │── dashboard_screenshots/
-│ ├── dashboard_page-1.png # Screenshot of first dashboard page
-│ ├── dashboard_page-2.png # Screenshot of second dashboard page
+│   ├── dashboard_page-1.png  # Screenshot of first dashboard page
+│   ├── dashboard_page-2.png  # Screenshot of second dashboard page
 │
 │── data/
-│ ├── churn_analysis.zip # Data related to churn analysis
-│ ├── churn_summary.zip # Summary statistics of churn data
-│ ├── cleaned_transactions.zip # Processed transaction data
-│ ├── clv_data.zip # Data related to Customer Lifetime Value (CLV)
-│ ├── customer_segmentation_guide.txt # Documentation for segmentation process
-│ ├── customer_segments.zip # Processed customer segmentation data
-│ ├── Retail_Transactions_Dataset.zip # Raw retail transaction data
+│   ├── churn_analysis.zip  # Data related to churn analysis
+│   ├── churn_summary.zip  # Summary statistics of churn data
+│   ├── cleaned_transactions.zip  # Processed transaction data
+│   ├── clv_data.zip  # Data related to Customer Lifetime Value (CLV)
+│   ├── customer_segmentation_guide.txt  # Documentation for segmentation process
+│   ├── customer_segments.zip  # Processed customer segmentation data
+│   ├── Retail_Transactions_Dataset.zip  # Raw retail transaction data
 │
 │── notebooks (preprocessing + EDA + models)/
-│ ├── 01_data_understanding.ipynb # Initial data exploration
-│ ├── 02_eda_analysis.ipynb # Exploratory Data Analysis (EDA)
-│ ├── 03_customer_segmentation.ipynb # Clustering and segmentation models
-│ ├── 04_customer_lifetime_value.ipynb # Predicting customer lifetime value
+│   ├── 01_data_understanding.ipynb  # Initial data exploration
+│   ├── 02_eda_analysis.ipynb  # Exploratory Data Analysis (EDA)
+│   ├── 03_customer_segmentation.ipynb  # Clustering and segmentation models
+│   ├── 04_customer_lifetime_value.ipynb  # Predicting customer lifetime value
+|   |── 05
+```
+
 
 ---
 
