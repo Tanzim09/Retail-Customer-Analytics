@@ -131,17 +131,24 @@ Retail-Customer-Analytics/
 │   ├── 02_eda_analysis.ipynb  # Exploratory Data Analysis (EDA)
 │   ├── 03_customer_segmentation.ipynb  # Clustering and segmentation models
 │   ├── 04_customer_lifetime_value.ipynb  # Predicting customer lifetime value
-|   |── 05
+│
+│── sql_queries/
+│   ├── queries.sql  # SQL queries to analyze the dataset
+│   ├── query_outputs_csv/  # Folder containing output CSVs from SQL queries
+│   │   ├── query_output_1.csv  # Example output 1
+│   │   ├── query_output_2.csv  # Example output 2
+│   ├── query_output.pdf  # A PDF of the SQL query results
+│
+│── README.md  # Project overview and details
 ```
-
 
 ---
 
 ### 📢 Contributors & Contact
 
 👤 **Tanzim Rafat**  
-📧 ****  
-🔗 **[GitHub Repository](https://github.com/yourusername/Retail-Customer-Analytics)**
+📧 \***\*  
+🔗 **[GitHub Repository](https://github.com/yourusername/Retail-Customer-Analytics)\*\*
 
 ---
 
