@@ -24,6 +24,10 @@ Key aspects covered:
 
 ---
 
+## 📂 Dataset
+
+- **Source:** [Retail Transactions Dataset](https://www.kaggle.com/datasets/prasad22/retail-transactions-dataset)
+
 ## Project Workflow
 
 ### 1. Data Understanding & Preprocessing
@@ -151,5 +155,3 @@ Retail-Customer-Analytics/
 🔗 LinkedIn: [Tanzim Rafat](https://www.linkedin.com/in/tanzimrafat/)
 
 ---
-
-This project provides **actionable insights** into retail sales, customer behavior, and predictive analytics. The combination of **Python, SQL, Machine Learning, and Power BI** makes it an excellent **data-driven business solution**! 🚀
