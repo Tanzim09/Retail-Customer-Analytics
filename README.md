@@ -93,7 +93,7 @@ Key aspects covered:
 
 ### Python Code Execution
 
-- Open the Jupyter Notebooks (`.ipynb`) and execute step by step.
+- Open the Jupyter Notebooks (`.ipynb`) and execute cell by cell.
 - Required libraries: `pandas`, `numpy`, `seaborn`, `matplotlib`, `sklearn`, `lifetimes`.
 
 ### SQL Queries
@@ -144,11 +144,11 @@ Retail-Customer-Analytics/
 
 ---
 
-### 📢 Contributors & Contact
+## 📧 Contact
 
 👤 **Tanzim Rafat**  
-📧 \***\*  
-🔗 **[GitHub Repository](https://github.com/yourusername/Retail-Customer-Analytics)\*\*
+📧 Email: [tanzimrafat069@gmail.com](mailto:tanzimrafat069@gmail.com)  
+🔗 LinkedIn: [Tanzim Rafat](https://www.linkedin.com/in/tanzimrafat/)
 
 ---
 
